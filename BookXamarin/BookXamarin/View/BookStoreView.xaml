@@ -11,11 +11,21 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout>
-                                <Label Text="{Binding Title}" TextColor="Red"></Label>
-                                <Label Text="{Binding Author}"></Label>
-                                <Label Text="{Binding Country}" TextColor="Blue"></Label>
-                            </StackLayout>
+                            <Grid Margin="5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="30"></RowDefinition>
+                                    <RowDefinition Height="2*"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{Binding ImageLink}}" Aspect="AspectFit" Grid.Column="0" Grid.RowSpan="3"></Image>
+                                <Label Text="{Binding Title}" TextColor="Red" Grid.Row="0" Grid.Column="1"></Label>
+                                <Label Text="{Binding Author}" Grid.Row="1" Grid.Column="1"></Label>
+                                <Label Text="{Binding Country}" TextColor="Blue" Grid.Row="2" Grid.Column="1"></Label>
+                            </Grid>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
