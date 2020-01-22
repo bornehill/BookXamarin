@@ -4,6 +4,7 @@ using BookXamarin.Utils;
 using BookXamarin.Model;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System;
 
 namespace BookXamarin.ViewModel
 {
@@ -33,10 +34,16 @@ namespace BookXamarin.ViewModel
         }
 
         public ICommand BackCommand => new Command(OnBackBottom);
+        public ICommand MoreInformationCommand => new Command(OpenMoreInformation);
 
         private void OnBackBottom()
         {
             _navigationService.NavigateBackAsync();
+        }
+
+        private void OpenMoreInformation()
+        {
+            Device.OpenUri(new Uri(ShowBook.Link));
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

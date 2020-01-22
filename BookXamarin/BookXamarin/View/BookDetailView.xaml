@@ -14,6 +14,7 @@
                     <RowDefinition Height="50"></RowDefinition>
                     <RowDefinition Height="20"></RowDefinition>
                     <RowDefinition Height="20"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="2*"></ColumnDefinition>
@@ -30,6 +31,19 @@
                 <Label Text="{Binding ShowBook.Country}" TextColor="Blue" Grid.Row="4" Grid.Column="0" HorizontalOptions="Center"></Label>
                 <Label Text="{Binding ShowBook.Year}" TextColor="Blue" Grid.Row="4" Grid.Column="1" HorizontalOptions="Center"></Label>
                 <Label Text="{Binding ShowBook.Pages}" TextColor="Blue" Grid.Row="4" Grid.Column="2" HorizontalOptions="Center"></Label>
+                <Label Grid.Row="5" Grid.ColumnSpan="3" HorizontalOptions="EndAndExpand">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="More information"
+                              TextColor="Blue"
+                              TextDecorations="Underline">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding MoreInformationCommand}"/>
+                                </Span.GestureRecognizers>
+                            </Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
             </Grid>
             <Button Text="Back" Command="{Binding BackCommand}"
                     HorizontalOptions="CenterAndExpand"
