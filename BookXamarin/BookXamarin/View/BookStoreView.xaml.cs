@@ -14,15 +14,9 @@ namespace BookXamarin.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class BookStoreView : ContentPage
     {
-        public BookViewModel books;
-
         public BookStoreView()
         {
             InitializeComponent();
-            var ser = new BookService();
-            books = new BookViewModel();
-            books.Books = ser.GetAllBook();
-            BindingContext = books;
         }
     }
 }

@@ -2,7 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BookXamarin.View.BookStoreView"
-             Title="BockStore">
+             xmlns:utility="clr-namespace:BookXamarin.Utils;assembly=BookXamarin"
+             utility:ViewModelLocator.AutoWireViewModel="True"
+             Title="BookStore">
     <ContentPage.Content>
       <StackLayout>
             <ListView ItemsSource="{Binding Books}" HasUnevenRows="True">

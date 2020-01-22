@@ -1,4 +1,5 @@
-﻿using BookXamarin.View;
+﻿using BookXamarin.Utils;
+using BookXamarin.View;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -11,8 +12,14 @@ namespace BookXamarin
         public App()
         {
             InitializeComponent();
+            InitializeApp();
 
             MainPage = new BookStoreView();
+        }
+
+        private void InitializeApp()
+        {
+            AppContainer.RegisterDependencies();
         }
 
         protected override void OnStart()

@@ -11,15 +11,11 @@ namespace BookXamarin
 {
     public partial class MainPage : ContentPage
     {
-        public BookViewModel books;
+        public BookStoreViewModel books;
 
         public MainPage()
         {
             InitializeComponent();
-            var ser = new BookService();
-            books = new BookViewModel();
-            books.Books = ser.GetAllBook();
-            BindingContext = books;                
         }
     }
 }
