@@ -5,6 +5,9 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
 using BookXamarin.Service;
+using System.Windows.Input;
+using Xamarin.Forms;
+using BookXamarin.Utils;
 
 namespace BookXamarin.ViewModel
 {
@@ -13,10 +16,12 @@ namespace BookXamarin.ViewModel
         private List<Book> _books;
         private string _myTitle;
         protected readonly IBookService _bookService;
+        protected readonly INavigationService _navigationService;
 
-        public BookStoreViewModel(IBookService bookService)
+        public BookStoreViewModel(IBookService bookService, INavigationService navigationService)
         {
             _bookService = bookService;
+            _navigationService = navigationService;
             Books = _bookService.GetAllBook();
         }
 
@@ -39,6 +44,14 @@ namespace BookXamarin.ViewModel
                 OnPropertyChanged();
             }
         }
+
+        public ICommand BookTappedCommand => new Command<Book>(OnBookClicked);
+
+        private void OnBookClicked(Book selectedBook)
+        {
+            _navigationService.NavigateToAsync(typeof(BookDetailViewModel), selectedBook);
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)

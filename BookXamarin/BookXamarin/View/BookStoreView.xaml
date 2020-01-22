@@ -2,12 +2,20 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BookXamarin.View.BookStoreView"
+             xmlns:behaviors="clr-namespace:BookXamarin.Behaviors;assembly=BookXamarin"
              xmlns:utility="clr-namespace:BookXamarin.Utils;assembly=BookXamarin"
              utility:ViewModelLocator.AutoWireViewModel="True"
              Title="BookStore">
     <ContentPage.Content>
       <StackLayout>
             <ListView ItemsSource="{Binding Books}" HasUnevenRows="True">
+                <ListView.Behaviors>
+                    <behaviors:EventToCommandBehavior 
+                    EventName="ItemTapped" 
+                    Command="{Binding BookTappedCommand}" 
+                    EventArgsConverter="{StaticResource LocalItemTappedConverter}" >
+                    </behaviors:EventToCommandBehavior>
+                </ListView.Behaviors>
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -21,7 +29,7 @@
                                     <ColumnDefinition Width="100"></ColumnDefinition>
                                     <ColumnDefinition Width="*"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
-                                <Image Source="{Binding ImageLink}}" Aspect="AspectFit" Grid.Column="0" Grid.RowSpan="3"></Image>
+                                <Image Source="{Binding ImageLink}" Aspect="AspectFit" Grid.Column="0" Grid.RowSpan="3"></Image>
                                 <Label Text="{Binding Title}" TextColor="Red" Grid.Row="0" Grid.Column="1"></Label>
                                 <Label Text="{Binding Author}" Grid.Row="1" Grid.Column="1"></Label>
                                 <Label Text="{Binding Country}" TextColor="Blue" Grid.Row="2" Grid.Column="1"></Label>
