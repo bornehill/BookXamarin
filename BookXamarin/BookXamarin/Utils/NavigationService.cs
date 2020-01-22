@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using BookXamarin.Model;
 
 namespace BookXamarin.Utils
 {
@@ -22,7 +23,8 @@ namespace BookXamarin.Utils
 
         public Task NavigateBackAsync()
         {
-            throw new NotImplementedException();
+            CurrentApplication.MainPage = new BookStoreView();
+            return Task.FromResult(false);
         }
 
         public Task NavigateToAsync(Type viewModelType, object parameter)
@@ -35,7 +37,9 @@ namespace BookXamarin.Utils
             var page = CreatePage(viewModelType, parameter);
 
             if (page is BookDetailView)
-                page.BindingContext = parameter;
+            {
+                (page.BindingContext as BookDetailViewModel).Initialize(parameter as Book);
+            }
 
             CurrentApplication.MainPage = page;
 

@@ -1,32 +1,39 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:utility="clr-namespace:BookXamarin.Utils;assembly=BookXamarin"
+             utility:ViewModelLocator.AutoWireViewModel="True"             
              x:Class="BookXamarin.View.BookDetailView">
     <ContentPage.Content>
-        <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+        <StackLayout>
+            <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
               Margin="10">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="30"></RowDefinition>
-                <RowDefinition Height="50"></RowDefinition>
-                <RowDefinition Height="50"></RowDefinition>
-                <RowDefinition Height="20"></RowDefinition>
-                <RowDefinition Height="20"></RowDefinition>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2*"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Image Source="{Binding ImageLink}" Aspect="AspectFit" Grid.Column="0" Grid.RowSpan="3"></Image>
-            <Label Text="{Binding Title}" TextColor="Red" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2"></Label>
-            <Label Text="{Binding Author}" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"></Label>
-            <Label Text="{Binding Language}" TextColor="Blue" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"></Label>
-            <Label Text="Country:" TextColor="Blue" Grid.Row="3" Grid.Column="0" HorizontalOptions="Center"></Label>
-            <Label Text="Year:" TextColor="Blue" Grid.Row="3" Grid.Column="1" HorizontalOptions="Center"></Label>
-            <Label Text="Pages:" TextColor="Blue" Grid.Row="3" Grid.Column="2" HorizontalOptions="Center"></Label>
-            <Label Text="{Binding Country}" TextColor="Blue" Grid.Row="4" Grid.Column="0" HorizontalOptions="Center"></Label>
-            <Label Text="{Binding Year}" TextColor="Blue" Grid.Row="4" Grid.Column="1" HorizontalOptions="Center"></Label>
-            <Label Text="{Binding Pages}" TextColor="Blue" Grid.Row="4" Grid.Column="2" HorizontalOptions="Center"></Label>
-        </Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="20"></RowDefinition>
+                    <RowDefinition Height="20"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Image Source="{Binding ShowBook.ImageLink}" Aspect="AspectFit" Grid.Column="0" Grid.RowSpan="3"></Image>
+                <Label Text="{Binding ShowBook.Title}" TextColor="Red" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2"></Label>
+                <Label Text="{Binding ShowBook.Author}" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"></Label>
+                <Label Text="{Binding ShowBook.Language}" TextColor="Blue" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"></Label>
+                <Label Text="Country:" TextColor="Blue" Grid.Row="3" Grid.Column="0" HorizontalOptions="Center"></Label>
+                <Label Text="Year:" TextColor="Blue" Grid.Row="3" Grid.Column="1" HorizontalOptions="Center"></Label>
+                <Label Text="Pages:" TextColor="Blue" Grid.Row="3" Grid.Column="2" HorizontalOptions="Center"></Label>
+                <Label Text="{Binding ShowBook.Country}" TextColor="Blue" Grid.Row="4" Grid.Column="0" HorizontalOptions="Center"></Label>
+                <Label Text="{Binding ShowBook.Year}" TextColor="Blue" Grid.Row="4" Grid.Column="1" HorizontalOptions="Center"></Label>
+                <Label Text="{Binding ShowBook.Pages}" TextColor="Blue" Grid.Row="4" Grid.Column="2" HorizontalOptions="Center"></Label>
+            </Grid>
+            <Button Text="Back" Command="{Binding BackCommand}"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand"></Button>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>
