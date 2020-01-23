@@ -38,6 +38,8 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <Button Text="Add book" Font="25" Command="{Binding AddBookCommand}}"
+                    BackgroundColor="Blue"></Button> 
         </StackLayout>
   </ContentPage.Content>
 </ContentPage>

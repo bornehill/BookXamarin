@@ -74,6 +74,7 @@ namespace BookXamarin.Utils
         {
             _mappings.Add(typeof(BookStoreViewModel), typeof(BookStoreView));
             _mappings.Add(typeof(BookDetailViewModel), typeof(BookDetailView));
+            _mappings.Add(typeof(AddBookViewModel), typeof(AddBookView));
         }
     }
 }

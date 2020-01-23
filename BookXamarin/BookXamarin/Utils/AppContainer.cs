@@ -15,6 +15,7 @@ namespace BookXamarin.Utils
             var builder = new ContainerBuilder();
 
             builder.RegisterType<BookStoreViewModel>();
+            builder.RegisterType<AddBookViewModel>();
             builder.RegisterType<BookDetailViewModel>();
             builder.RegisterType<BookService>().As<IBookService>();
             builder.RegisterType<NavigationService>().As<INavigationService>();

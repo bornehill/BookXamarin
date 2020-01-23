@@ -10,7 +10,7 @@ namespace BookXamarin.ViewModel
 {
     public class BookDetailViewModel : INotifyPropertyChanged
     {
-        public Book _showBook;
+        private Book _showBook;
         protected readonly INavigationService _navigationService;
 
         public BookDetailViewModel(INavigationService navigationService)

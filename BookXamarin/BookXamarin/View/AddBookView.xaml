@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:utility="clr-namespace:BookXamarin.Utils;assembly=BookXamarin"
+             utility:ViewModelLocator.AutoWireViewModel="True"             
+             x:Class="BookXamarin.View.AddBookView">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+              Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Text="Author:" Grid.Row="0" Grid.Column="0" HorizontalOptions="End" VerticalOptions="CenterAndExpand"></Label>
+                <Editor Text="{Binding NewBook.Author}" Grid.Row="0" Grid.Column="1"></Editor>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

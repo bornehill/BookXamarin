@@ -51,6 +51,13 @@ namespace BookXamarin.ViewModel
             _navigationService.NavigateToAsync(typeof(BookDetailViewModel), selectedBook);
         }
 
+        public ICommand AddBookCommand => new Command(OnAddBookClicked);
+
+        private void OnAddBookClicked()
+        {
+            _navigationService.NavigateToAsync(typeof(AddBookViewModel), null);
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
